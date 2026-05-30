@@ -106,6 +106,17 @@ Step 8: jupyter nbconvert --to notebook --execute notebooks/analysis.ipynb
 
 *Seed = 42. Bootstrap CIs (n=1000) computed over all 500 questions with no subsampling.*
 
+### Visualization
+
+#### RAGAS Metrics Comparison
+![RAGAS Metrics Comparison](results/plots/metric_bars.png)
+
+#### PRM Score Distributions
+![PRM Score Distributions](results/plots/score_distributions.png)
+
+#### Context Recall by Hop
+![Context Recall by Hop](results/plots/context_recall_hop.png)
+
 Results are saved as:
 - `results/results.json` - Full RAGAS scores with 95% bootstrap CIs
 - `results/results.csv` - Same in CSV format

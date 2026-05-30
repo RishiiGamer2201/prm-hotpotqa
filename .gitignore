@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model cache
+*.bin
+*.safetensors
+
+# Results (keep structure, ignore large files)
+# results/*.jsonl  # uncomment if you don't want to track raw outputs
+
+# Environment
+.env
+
+# Temp results
+results/test/
+results/checkpoints/

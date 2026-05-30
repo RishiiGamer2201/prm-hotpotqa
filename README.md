@@ -143,7 +143,7 @@ Results are saved as:
 
 ## Hardware and Runtime
 
-- **Hardware:** Acer TravelMate P214-54, Intel 12th Gen i5-1235U ~1700MHz, 16GB RAM, Intel UHD Graphics (CPU-only, no CUDA)
+- **Hardware:** Acer TravelMate P214-54, Intel 12th Gen Core i7-1255U (10C/12T) @ 1700 MHz, 16 GB RAM, Intel UHD Graphics (CPU-only, no CUDA)
 - **Pipeline Runtime:** ~3-4 hours per threshold (2 runs total)
 - **RAGAS Eval Runtime:** ~30 hours on CPU (500 questions x 2 thresholds x 5 metrics via Ollama Mistral 7B)
 - **Total Runtime:** ~36-38 hours end-to-end on CPU

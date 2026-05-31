@@ -37,5 +37,4 @@ Thumbs.db
 .env
 
 # Temp results
-results/test/
 results/checkpoints/

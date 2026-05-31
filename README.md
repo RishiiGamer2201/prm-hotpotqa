@@ -174,6 +174,13 @@ prm-hotpotqa/
 |   |   |-- metric_distributions.png
 |   |   |-- score_distributions.png
 |   |   |-- score_distributions_detailed.png
+|   |-- test/               # Evaluation results for the 20 test questions
+|   |   |-- results.json
+|   |   |-- results.csv
+|   |   |-- plots/
+|   |   |   |-- context_recall_hop.png
+|   |   |   |-- metric_bars.png
+|   |   |   |-- score_distributions.png
 |-- notebooks/
 |   |-- analysis.ipynb      # Failure analysis and visualization notebook
 |-- .gitignore

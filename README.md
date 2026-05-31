@@ -169,6 +169,11 @@ prm-hotpotqa/
 |   |-- results.json        # Final RAGAS scores + CIs for 500 questions
 |   |-- results.csv         # Same in CSV format
 |   |-- plots/              # Visualization outputs (distribution and comparison charts)
+|   |   |-- context_recall_hop.png
+|   |   |-- metric_bars.png
+|   |   |-- metric_distributions.png
+|   |   |-- score_distributions.png
+|   |   |-- score_distributions_detailed.png
 |-- notebooks/
 |   |-- analysis.ipynb      # Failure analysis and visualization notebook
 |-- .gitignore

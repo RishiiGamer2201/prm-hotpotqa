@@ -29,7 +29,7 @@ Each question comes with **10 paragraphs**: 2 gold (supporting facts) + 8 distra
 | PRM Scorer | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Zero-shot, ~22M params |
 | Vector Search | FAISS (`IndexFlatIP`) | Cosine similarity (L2-normalized) |
 | Answer Generator | `google/flan-t5-large` | CPU-compatible |
-| RAGAS Judge | Ollama `mistral:7b` (primary) / `flan-t5-xl` (fallback) | Free, local |
+| RAGAS Judge | Ollama `mistral:7b` | Free, local |
 | Dataset | HotpotQA distractor split | 500 validation questions |
 
 **No API keys required. All models run locally.**
@@ -68,14 +68,6 @@ ollama serve
 
 # Run RAGAS evaluation
 python eval/ragas_eval.py \
-    --llm ollama \
-    --t04 results/t0.4_raw.jsonl \
-    --t06 results/t0.6_raw.jsonl \
-    --output results/
-
-# Alternative: HuggingFace fallback (if Ollama unavailable)
-python eval/ragas_eval.py \
-    --llm hf \
     --t04 results/t0.4_raw.jsonl \
     --t06 results/t0.6_raw.jsonl \
     --output results/
@@ -90,7 +82,7 @@ Step 3: ollama serve  (run in a separate terminal, keep it running)
 Step 4: ollama pull mistral  (one-time, ~4GB)
 Step 5: python src/pipeline.py --threshold 0.4 --output results/t0.4_raw.jsonl
 Step 6: python src/pipeline.py --threshold 0.6 --output results/t0.6_raw.jsonl
-Step 7: python eval/ragas_eval.py --llm ollama --t04 results/t0.4_raw.jsonl --t06 results/t0.6_raw.jsonl --output results/
+Step 7: python eval/ragas_eval.py --t04 results/t0.4_raw.jsonl --t06 results/t0.6_raw.jsonl --output results/
 Step 8: jupyter nbconvert --to notebook --execute notebooks/analysis.ipynb
 ```
 

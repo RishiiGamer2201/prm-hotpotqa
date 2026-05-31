@@ -6,7 +6,7 @@ confidence intervals. Calls Ollama directly via its REST API
 for LLM-based metrics - no API keys needed.
 
 Run:
-    python eval/ragas_eval.py --llm ollama --t04 results/t0.4_raw.jsonl --t06 results/t0.6_raw.jsonl --output results/
+    python eval/ragas_eval.py --t04 results/t0.4_raw.jsonl --t06 results/t0.6_raw.jsonl --output results/
 """
 
 import os
@@ -502,10 +502,6 @@ def main():
     """Main entry point for RAGAS evaluation."""
     parser = argparse.ArgumentParser(description="Run RAGAS evaluation")
     parser.add_argument(
-        "--llm", choices=["ollama", "hf"], default="ollama",
-        help="LLM backend: 'ollama' (default, free) or 'hf' (HuggingFace fallback)"
-    )
-    parser.add_argument(
         "--t04", required=True,
         help="Path to t=0.4 results JSONL"
     )
@@ -520,18 +516,17 @@ def main():
     args = parser.parse_args()
 
     # Verify Ollama is running
-    if args.llm == "ollama":
-        print("[Eval] Checking Ollama connection...")
-        try:
-            test = ollama_generate("Say OK", model="mistral")
-            if test:
-                print(f"[Eval] Ollama OK - response: {test[:50]}")
-            else:
-                print("[Eval] WARNING: Ollama returned empty response")
-        except Exception as e:
-            print(f"[Eval] ERROR: Cannot reach Ollama: {e}")
-            print("[Eval] Make sure 'ollama serve' is running in another terminal")
-            return
+    print("[Eval] Checking Ollama connection...")
+    try:
+        test = ollama_generate("Say OK", model="mistral")
+        if test:
+            print(f"[Eval] Ollama OK - response: {test[:50]}")
+        else:
+            print("[Eval] WARNING: Ollama returned empty response")
+    except Exception as e:
+        print(f"[Eval] ERROR: Cannot reach Ollama: {e}")
+        print("[Eval] Make sure 'ollama serve' is running in another terminal")
+        return
 
     # Load results
     t04_results = load_results(args.t04)

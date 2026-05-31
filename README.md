@@ -154,19 +154,25 @@ Results are saved as:
 ```
 prm-hotpotqa/
 |-- src/
+|   |-- __init__.py
 |   |-- prm.py              # PRM class, cross-encoder scoring, threshold pruning
 |   |-- retriever.py        # FAISS index, hop 1 + hop 2 retrieval, bridge extraction
 |   |-- pipeline.py         # End-to-end pipeline with CLI
 |-- eval/
+|   |-- __init__.py
 |   |-- ragas_eval.py       # RAGAS evaluation, bootstrap CIs, results export
 |-- results/
-|   |-- t0.4_raw.jsonl      # Per-question outputs at t=0.4
-|   |-- t0.6_raw.jsonl      # Per-question outputs at t=0.6
-|   |-- results.json        # Final RAGAS scores + CIs
-|   |-- results.csv         # Same in CSV
-|   |-- plots/              # Visualization outputs
+|   |-- t0.4_raw.jsonl      # Per-question outputs at t=0.4 (500 validation questions)
+|   |-- t0.6_raw.jsonl      # Per-question outputs at t=0.6 (500 validation questions)
+|   |-- t0.4_test.jsonl     # Per-question outputs at t=0.4 (20 test questions)
+|   |-- t0.6_test.jsonl     # Per-question outputs at t=0.6 (20 test questions)
+|   |-- results.json        # Final RAGAS scores + CIs for 500 questions
+|   |-- results.csv         # Same in CSV format
+|   |-- plots/              # Visualization outputs (distribution and comparison charts)
+|   |-- test/               # Evaluation results for the 20 test questions
 |-- notebooks/
-|   |-- analysis.ipynb      # Failure analysis notebook
+|   |-- analysis.ipynb      # Failure analysis and visualization notebook
+|-- .gitignore
 |-- requirements.txt
 |-- README.md
 ```
